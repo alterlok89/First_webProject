@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-
+{% load static %}
 	<!-- Home -->
 {% block home %}
-{% load static %}
+
 	<div class="home">
 		<div class="home_container">
 
@@ -29,7 +29,6 @@
 
 	<!-- Products -->
 {% block products %}
-	{% load static %}
 	<div class="products">
 		<div class="container">
 			<div class="row">
@@ -196,3 +195,6 @@
 <!--блок ads пустой-->
 {% endblock ad %}
 
+{% block js_add %}
+<script src="{% static 'js/categories.js' %}"></script>
+{% endblock js_add %}
