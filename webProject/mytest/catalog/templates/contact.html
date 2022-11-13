@@ -1,9 +1,22 @@
 {% extends "base.html" %}
-
-	
-	<!-- Home -->
-{% block home %}
 {% load static %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+{% block head_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/contact.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_responsive.css' %}">
+{% endblock %}
+
+<!-- Home -->
+{% block home %}
 	<div class="home">
 		<div class="home_container">
 			<div class="home_background" style="background-image:url({% static 'images/contact.jpg' %})"></div>
@@ -27,32 +40,27 @@
 	</div>
 {% endblock home %}
 
-<!-- Ads -->
+<!-- Ads пустой блок-->
 {% block ads %}
-<!--пустой блок-->
 {% endblock ads %}
 
-	<!-- Products -->
+<!-- Products пустой блок-->
 {% block products %}
-<!--пустой блок-->
 {% endblock products %}
 
-	<!-- Ad -->
+<!-- Ad пустой блок-->
 {% block ad %}
-<!--пустой блок-->
 {% endblock ad %}
 
-	<!-- Icon Boxes -->
+<!-- Icon Boxes пустой блок -->
 {% block icon_boxes %}
-<!--пустой блок-->
 {% endblock icon_boxes %}
 
-<!-- Newsletter -->
+<!-- Newsletter пустой блок-->
 {% block newsletter %}
-<!--пустой блок-->
 {% endblock newsletter %}
 
-	<!-- Contact -->
+<!-- Contact -->
 {% block contact %}
 	<div class="contact">
 		<div class="container">
@@ -137,8 +145,9 @@
 	</div>
 {% endblock contact %}
 
+
+
 {% block js %}
-{% load static %}
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>

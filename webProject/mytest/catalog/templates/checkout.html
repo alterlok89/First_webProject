@@ -1,11 +1,26 @@
 {% extends "base.html" %}
-{$ load static %}
-	
-	<!-- Home -->
+{% load static %}
+
+{% block title %}
+Checkout
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+{% block head_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/checkout.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/checkout_responsive.css' %}">
+{% endblock head_css %}
+
+
+<!-- Home -->
 {% block home %}
 	<div class="home">
 		<div class="home_container">
-			<div class="home_background" style="background-image:url(images/cart.jpg)"></div>
+			<div class="home_background" style="background-image:url({% static 'images/cart.jpg' %})"></div>
 			<div class="home_content_container">
 				<div class="container">
 					<div class="row">
@@ -13,8 +28,8 @@
 							<div class="home_content">
 								<div class="breadcrumbs">
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="cart.html">Shopping Cart</a></li>
+										<li><a href="{% url 'index' %}">Home</a></li>
+										<li><a href="{% url 'cart' %}">Shopping Cart</a></li>
 										<li>Checkout</li>
 									</ul>
 								</div>
@@ -27,7 +42,7 @@
 	</div>
 {% endblock home %}
 
-	<!-- Checkout -->
+<!-- Checkout -->
 {% block checkout %}
 	<div class="checkout">
 		<div class="container">
@@ -114,17 +129,17 @@
 								<div class="checkout_extra">
 									<div>
 										<input type="checkbox" id="checkbox_terms" name="regular_checkbox" class="regular_checkbox" checked="checked">
-										<label for="checkbox_terms"><img src="images/check.png" alt=""></label>
+										<label for="checkbox_terms"><img src="{% static 'images/check.png' %}" alt=""></label>
 										<span class="checkbox_title">Terms and conditions</span>
 									</div>
 									<div>
 										<input type="checkbox" id="checkbox_account" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_account"><img src="images/check.png" alt=""></label>
+										<label for="checkbox_account"><img src="{% static 'images/check.png' %}" alt=""></label>
 										<span class="checkbox_title">Create an account</span>
 									</div>
 									<div>
 										<input type="checkbox" id="checkbox_newsletter" name="regular_checkbox" class="regular_checkbox">
-										<label for="checkbox_newsletter"><img src="images/check.png" alt=""></label>
+										<label for="checkbox_newsletter"><img src="{% static 'images/check.png' %}" alt=""></label>
 										<span class="checkbox_title">Subscribe to our newsletter</span>
 									</div>
 								</div>
@@ -198,45 +213,40 @@
 	</div>
 {% endblock checkout %}
 
-<!-- Ads -->
+<!-- Ads пустой блок-->
 {% block ads %}
-<!--пустой блок-->
 {% endblock ads %}
 
-<!-- Products -->
+<!-- Products пустой блок-->
 {% block products %}
-<!--пустой блок-->
 {% endblock products %}
 
-<!-- Ad -->
+<!-- Ad пустой блок-->
 {% block ad %}
-<!--пустой блок-->
 {% endblock ad %}
 
-<!-- Icon Boxes -->
+<!-- Icon Boxes пустой блок-->
 {% block icon_boxes %}
-<!--пустой блок-->
 {% endblock icon_boxes %}
 
-<!-- Newsletter -->
+<!-- Newsletter пустой блок-->
 {% block newsletter %}
-<!--пустой блок-->
 {% endblock newsletter %}
 
 
 {% block js %}
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/greensock/TweenMax.min.js"></script>
-<script src="plugins/greensock/TimelineMax.min.js"></script>
-<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="plugins/greensock/animation.gsap.min.js"></script>
-<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
 {% endblock js %}
 
 {% block js_add %}
-<script src="js/checkout.js"></script>
+<script src="{% static 'js/checkout.js' %}"></script>
 {% endblock js_add %}

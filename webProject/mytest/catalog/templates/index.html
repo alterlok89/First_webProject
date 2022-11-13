@@ -1,3 +1,102 @@
 {$ load static %}
 {% extends "base.html" %}
 
+{% block products %}
+
+	<div class="products">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="product_grid">
+
+                        {% if product_list %}
+					    {% for product in products %}
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_extra product_sale"><a href="categories{% url 'cart' %}">Hot</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+                        {% endfor %}
+					    {% endif %}
+                        
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_extra product_sale"><a href="{% url 'categories' %}">Sale</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_extra product_hot"><a href="{% url 'categories' %}">Hot</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="	" alt=""></div>
+							<div class="product_extra product_sale"><a href="categories{% url 'cart' %}">Hot</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
+								<div class="product_price">$670</div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock products %}
