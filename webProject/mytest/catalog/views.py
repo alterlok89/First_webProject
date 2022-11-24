@@ -12,14 +12,18 @@ def index(request):
     return render(request, 'index.html', {"products": products})
 
 
+def home(request):
+    print(f'-----\n{request}\n-----')
+    return render(request, 'index.html')
+
 def cart(request):
     print(f'-----\n{request}\n-----')
     return render(request, 'cart.html')
 
 
-def categories(request):
+def login_register(request):
     print(f'-----\n{request}\n-----')
-    return render(request, 'categories.html')
+    return render(request, 'login-register.html')
 
 
 def checkout(request):
@@ -32,17 +36,22 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def product(request):
+def product_details(request):
     print(f'-----\n{request}\n-----')
-    return render(request, 'product.html')
+    return render(request, 'product-details-sticky-right.html')
 
 
-def home(request):
+def shop(request):
     print(f'-----\n{request}\n-----')
-    return render(request, 'index.html')
+    return render(request, 'shop.html')
+
+def wishlist(request):
+    print(f'-----\n{request}\n-----')
+    return render(request, 'wishlist.html')
+
 
 
 class ProductListViews(generic.ListView):
     model = Product
-    template_name = 'base.html'
+    template_name = 'index.html'
     context_object_name = 'product_list'

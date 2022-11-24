@@ -1,563 +1,909 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load static %}
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
-<title>{% block title %}FUNKOShop{% endblock title %}</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Sublime project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
-<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
-	{% endblock css %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        {% block title %}
+        Tmart-Minimalist eCommerce HTML5 Template
+        {% endblock title %}
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	{% block head_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
-	{% endblock head_css %}
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
+
+    {% block css_head %}
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Owl Carousel main css -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="{% static 'css/core.css' %}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css' %}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- User style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    {% endblock css_head %}
+
+    {% block js_head %}
+    <!-- Modernizr JS -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    {% endblock js_head %}
+
 </head>
+
 <body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper fixed__footer">
+
+        {% block header %}
+        <!-- Start Header Style -->
+        <header id="header" class="htc-header header--3 bg__white" style="background-color:#87CEFA;">
+
+            <!-- Start Mainmenu Area -->
+            <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
+                            <div class="logo">
+                                <a href="{% url 'index' %}">
+                                    <img src="{% static 'images/logo/logo.png' %}" alt="logo">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Start MAinmenu Ares -->
+                        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+                            <nav class="mainmenu__nav hidden-xs hidden-sm">
+                                <ul class="main__menu">
+                                    <li class="drop"><a href="{% url 'index' %}">Home</a>
+                                    </li>
+                                    <li class="drop"><a href="{% url 'shop' %}">Shop</a>
+                                    </li>
+                                    <li class="drop"><a href="#">pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'shop' %}">shop</a></li>
+                                            <li><a href="{% url 'product-details' %}">product details</a></li>
+                                            <li><a href="{% url 'cart' %}">cart</a></li>
+                                            <li><a href="{% url 'wishlist' %}">wishlist</a></li>
+                                            <li><a href="{% url 'checkout' %}">checkout</a></li>
+                                            <li><a href="{% url 'login-register' %}">login & register</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'contact' %}">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <!-- End MAinmenu Ares -->
+                        <div class="col-md-2 col-sm-4 col-xs-3">
+                            <ul class="menu-extra">
+                                <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
+                                <li><a href="{% url 'login-register' %}"><span class="ti-user"></span></a></li>
+                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
+                                <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mobile-menu-area"></div>
+                </div>
+            </div>
+            <!-- End Mainmenu Area -->
+        </header>
+        <!-- End Header Style -->
+        {% endblock header %}
+
+        {% block body %}
+
+        <div class="body__overlay"></div>
+
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-md-12" >
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Search Popap -->
+            <!-- Start Offset MEnu -->
+            <div class="offsetmenu">
+                <div class="offsetmenu__inner">
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>
+                    <div class="off__contact">
+                        <div class="logo">
+                            <a href="{% url 'index' %}">
+                                <img src="{% static 'images/logo/logo.png' %}" alt="logo">
+                            </a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <ul class="sidebar__thumd">
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/1.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/2.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/3.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/4.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/5.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/6.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/7.jpg' %}" alt="sidebar images"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sidebar-img/8.jpg' %}" alt="sidebar images"></a></li>
+                    </ul>
+                    <div class="offset__widget">
+                        <div class="offset__single">
+                            <h4 class="offset__title">Language</h4>
+                            <ul>
+                                <li><a href="#"> Engish </a></li>
+                                <li><a href="#"> French </a></li>
+                                <li><a href="#"> German </a></li>
+                            </ul>
+                        </div>
+                        <div class="offset__single">
+                            <h4 class="offset__title">Currencies</h4>
+                            <ul>
+                                <li><a href="#"> USD : Dollar </a></li>
+                                <li><a href="#"> EUR : Euro </a></li>
+                                <li><a href="#"> POU : Pound </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="offset__sosial__share">
+                        <h4 class="offset__title">Follow Us On Social</h4>
+                        <ul class="off__soaial__link">
+                            <li><a class="bg--twitter" href="#"  title="Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+
+                            <li><a class="bg--instagram" href="#" title="Instagram"><i class="zmdi zmdi-instagram"></i></a></li>
+
+                            <li><a class="bg--facebook" href="#" title="Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
+
+                            <li><a class="bg--googleplus" href="#" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a></li>
+
+                            <li><a class="bg--google" href="#" title="Google"><i class="zmdi zmdi-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Offset MEnu -->
+            <!-- Start Cart Panel -->
+            <div class="shopping__cart">
+                <div class="shopping__cart__inner">
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>
+                    <div class="shp__cart__wrap">
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="{% static 'images/product/sm-img/1.jpg' %}" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="{% url 'product-details' %}">BO&Play Wireless Speaker</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$105.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="{% static 'images/product/sm-img/2.jpg' %}" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="{% url 'product-details' %}">Brone Candle</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$25.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="shoping__total">
+                        <li class="subtotal">Subtotal:</li>
+                        <li class="total__price">$130.00</li>
+                    </ul>
+                    <ul class="shopping__btn">
+                        <li><a href="{% url 'cart' %}">View Cart</a></li>
+                        <li class="shp__checkout"><a href="{% url 'checkout' %}">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Cart Panel -->
+        </div>
+        <!-- End Offset Wrapper -->
+
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Left Feature -->
+                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <!-- Start Slider Area -->
+                        <div class="slider__container slider--one">
+                            <div class="slider__activation__wrap owl-carousel owl-theme">
+                                <!-- Start Single Slide -->
+                                <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
+                                                <div class="slider__inner">
+                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
+                                                    <div class="slider__btn">
+                                                        <a class="htc__btn" href="{% url 'cart' %}">shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Slide -->
+                                <!-- Start Single Slide -->
+                                <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/2.png) no-repeat scroll center center / cover ;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                                                <div class="slider__inner">
+                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
+                                                    <div class="slider__btn">
+                                                        <a class="htc__btn" href="{% url 'cart' %}">shop now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Slide -->
+                            </div>
+                        </div>
+                        <!-- Start Slider Area -->
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 float-right-style">
+                        <div class="categories-menu mrg-xs">
+                            <div class="category-heading">
+                               <h3> Browse Categories</h3>
+                            </div>
+                            <div class="category-menu-list">
+                                <ul>
+                                    <li><a href="#"><img alt="" src="images/icons/thum2.png"> Women’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
+                                        <div class="category-menu-dropdown">
+                                            <div class="category-part-1 category-common mb--30">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category-part-2 category-common mb--30">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category-part-3 category-common">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category-part-4 category-common">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum3.png"> Man Fashion <i class="zmdi zmdi-chevron-right"></i></a>
+                                        <div class="category-menu-dropdown">
+                                            <div class="category-part-1 category-common2 mb--30">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category-part-2 category-common2 mb--30">
+                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="category-part-3 category-common2 mb--30">
+                                                <h4 class="categories-subtitle">dress</h4>
+                                                <ul>
+                                                    <li><a href="#"> Men’s Clothing</a></li>
+                                                    <li><a href="#"> Computer & Office</a></li>
+                                                    <li><a href="#"> Jewelry & Watches</a></li>
+                                                    <li><a href="#"> Bags & Shoes</a></li>
+                                                    <li><a href="#"> Phones & Accessories</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-banner-img">
+                                                <a href="single-product.html">
+                                                    <img src="images/feature-img/5.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum4.png"> Computer & Office <i class="zmdi zmdi-chevron-right"></i></a>
+                                        <div class="category-menu-dropdown">
+                                            <div class="category-menu-dropdown-top">
+                                                <div class="category-part-1 category-common2 mb--30">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-2 category-common2 mb--30">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-3 category-common2 mb--30">
+                                                    <h4 class="categories-subtitle">Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="category-menu-dropdown-bottom">
+                                                <div class="single-category-brand">
+                                                    <a href="#"><img src="images/brand/6.png" alt=""></a>
+                                                </div>
+                                                <div class="single-category-brand">
+                                                    <a href="#"><img src="images/brand/7.png" alt=""></a>
+                                                </div>
+                                                <div class="single-category-brand">
+                                                    <a href="#"><img src="images/brand/8.png" alt=""></a>
+                                                </div>
+                                                <div class="single-category-brand">
+                                                    <a href="#"><img src="images/brand/9.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum5.png"> Jewelry & Watches <i class="zmdi zmdi-chevron-right"></i></a>
+                                        <div class="category-menu-dropdown">
+                                            <div class="category-menu-dropdown-left">
+                                                <div class="category-part-1 category-common mb--30">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-2 category-common mb--30">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-3 category-common">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-4 category-common">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="category-menu-dropdown-right">
+                                                <div class="menu-right-img">
+                                                    <a href="#"><img src="images/feature-img/2.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum6.png"> Men’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
+                                        <div class="category-menu-dropdown">
+                                            <div class="category-menu-dropdown-left">
+                                                <div class="category-part-1 category-common">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones </a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="category-part-2 category-common">
+                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                                    <ul>
+                                                        <li><a href="#"> Men’s Clothing</a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Jewelry & Watches</a></li>
+                                                        <li><a href="#"> Bags & Shoes</a></li>
+                                                        <li><a href="#"> Phones </a></li>
+                                                        <li><a href="#"> Computer & Office</a></li>
+                                                        <li><a href="#"> Phones & Accessories</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="category-menu-dropdown-right">
+                                                <div class="menu-right-img">
+                                                    <a href="#"><img src="images/feature-img/1.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum7.png"> Bags & Shoes</a></li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum8.png"> Toys & Kids & Baby</a></li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum9.png">  Automobiles </a></li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum10.png"> Jewelry & Watches</a></li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum2.png"> Consumer Electronics</a></li>
+                                    <li><a href="#"><img alt="" src="images/icons/thum3.png"> all Accessories</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Left Feature -->
+                </div>
+            </div>
+        </section>
+        <!-- End Feature Product -->
+
+        <div class="only-banner ptb--100 bg__white">
+            <div class="container">
+                <div class="only-banner-img">
+                    <a href="shop-sidebar.html"><img src="{% static 'images/new-product/3.jpg' %}" alt="new product"></a>
+                </div>
+            </div>
+        </div>
 
 
-<div class="super_container">
+        <div class="only-banner bg__white">
+            <div class="container">
+                <div class="only-banner-img">
+                    <a href="shop-sidebar.html"><img src="{% static 'images/new-product/7.jpg' %}" alt="new product"></a>
+                </div>
+            </div>
+        </div>
 
-	<!-- Header -->
-	{% block header %}
-	<header class="header" >
-		<div class="header_container" style="background-color:#1E90FF">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="header_content d-flex flex-row align-items-center justify-content-start">
-							<div class="logo"><a href="#">FUNKOShop.</a></div>
-							<nav class="main_nav">
-								<ul>
-									<li class="hassubs active">
-										<a href="{% url 'index' %}">Home</a>
-										<ul>
-											<li><a href="{% url 'categories' %}">Categories</a></li>
-											<li><a href="{% url 'product' %}">Product</a></li>
-											<li><a href="{% url 'cart' %}">Cart</a></li>
-											<li><a href="{% url 'checkout' %}">Check out</a></li>
-											<li><a href="{% url 'contact' %}">Contact</a></li>
-										</ul>
-									</li>
-									<li class="hassubs">
-										<a href="{% url 'categories' %}">Categories</a>
-										<ul>
-											<li><a href="{% url 'categories' %}">Category</a></li>
-											<li><a href="{% url 'categories' %}">Category</a></li>
-											<li><a href="{% url 'categories' %}">Category</a></li>
-											<li><a href="{% url 'categories' %}">Category</a></li>
-											<li><a href="{% url 'categories' %}">Category</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Offers</a></li>
-									<li><a href="{% url 'contact' %}">Contact</a></li>
-								</ul>
-							</nav>
-							<div class="header_extra ml-auto">
-								<div class="shopping_cart">
-									<a href="{% url 'cart' %}">
-										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-												 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
-											<g>
-												<path d="M440.1,422.7l-28-315.3c-0.6-7-6.5-12.3-13.4-12.3h-57.6C340.3,42.5,297.3,0,244.5,0s-95.8,42.5-96.6,95.1H90.3
-													c-7,0-12.8,5.3-13.4,12.3l-28,315.3c0,0.4-0.1,0.8-0.1,1.2c0,35.9,32.9,65.1,73.4,65.1h244.6c40.5,0,73.4-29.2,73.4-65.1
-													C440.2,423.5,440.2,423.1,440.1,422.7z M244.5,27c37.9,0,68.8,30.4,69.6,68.1H174.9C175.7,57.4,206.6,27,244.5,27z M366.8,462
-													H122.2c-25.4,0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h139.3v41
-													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z"/>
-											</g>
-										</svg>
-										<div>Cart <span>(0)</span></div>
-									</a>
-								</div>
-								<div class="search">
-									<div class="search_icon">
-										<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-										viewBox="0 0 475.084 475.084" style="enable-background:new 0 0 475.084 475.084;"
-										 xml:space="preserve">
-										<g>
-											<path d="M464.524,412.846l-97.929-97.925c23.6-34.068,35.406-72.047,35.406-113.917c0-27.218-5.284-53.249-15.852-78.087
-												c-10.561-24.842-24.838-46.254-42.825-64.241c-17.987-17.987-39.396-32.264-64.233-42.826
-												C254.246,5.285,228.217,0.003,200.999,0.003c-27.216,0-53.247,5.282-78.085,15.847C98.072,26.412,76.66,40.689,58.673,58.676
-												c-17.989,17.987-32.264,39.403-42.827,64.241C5.282,147.758,0,173.786,0,201.004c0,27.216,5.282,53.238,15.846,78.083
-												c10.562,24.838,24.838,46.247,42.827,64.234c17.987,17.993,39.403,32.264,64.241,42.832c24.841,10.563,50.869,15.844,78.085,15.844
-												c41.879,0,79.852-11.807,113.922-35.405l97.929,97.641c6.852,7.231,15.406,10.849,25.693,10.849
-												c9.897,0,18.467-3.617,25.694-10.849c7.23-7.23,10.848-15.796,10.848-25.693C475.088,428.458,471.567,419.889,464.524,412.846z
-												 M291.363,291.358c-25.029,25.033-55.148,37.549-90.364,37.549c-35.21,0-65.329-12.519-90.36-37.549
-												c-25.031-25.029-37.546-55.144-37.546-90.36c0-35.21,12.518-65.334,37.546-90.36c25.026-25.032,55.15-37.546,90.36-37.546
-												c35.212,0,65.331,12.519,90.364,37.546c25.033,25.026,37.548,55.15,37.548,90.36C328.911,236.214,316.392,266.329,291.363,291.358z
-												"/>
-										</g>
-									</svg>
-									</div>
-								</div>
-								<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- Start Blog Area -->
+        <section class="htc__blog__area bg__white pb--130">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section__title section__title--2 text-center">
+                            <h2 class="title__line">Latest News</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="blog__wrap clearfix mt--60 xmt-30">
+                        <!-- Start Single Blog -->
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                            <div class="blog foo">
+                                <div class="blog__inner">
+                                    <div class="blog__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="{% static 'images/blog/blog-img/1.jpg' %}" alt="blog images">
+                                        </a>
+                                        <div class="blog__post__time">
+                                            <div class="post__time--inner">
+                                                <span class="date">14</span>
+                                                <span class="month">sep</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog__hover__info">
+                                        <div class="blog__hover__action">
+                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                            <ul class="bl__meta">
+                                                <li>By :<a href="#">Admin</a></li>
+                                                <li>Product</li>
+                                            </ul>
+                                            <div class="blog__btn">
+                                                <a class="read__more__btn" href="blog-details.html">read more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                        <!-- Start Single Blog -->
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                            <div class="blog foo">
+                                <div class="blog__inner">
+                                    <div class="blog__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="{% static 'images/blog/blog-img/2.jpg' %}" alt="blog images">
+                                        </a>
+                                        <div class="blog__post__time">
+                                            <div class="post__time--inner">
+                                                <span class="date">14</span>
+                                                <span class="month">sep</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog__hover__info">
+                                        <div class="blog__hover__action">
+                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                            <ul class="bl__meta">
+                                                <li>By :<a href="#">Admin</a></li>
+                                                <li>Product</li>
+                                            </ul>
+                                            <div class="blog__btn">
+                                                <a class="read__more__btn" href="blog-details.html">read more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                        <!-- Start Single Blog -->
+                        <div class="col-md-4 col-lg-4 hidden-sm col-xs-12">
+                            <div class="blog foo">
+                                <div class="blog__inner">
+                                    <div class="blog__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="{% static 'images/blog/blog-img/3.jpg' %}" alt="blog images">
+                                        </a>
+                                        <div class="blog__post__time">
+                                            <div class="post__time--inner">
+                                                <span class="date">14</span>
+                                                <span class="month">sep</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog__hover__info">
+                                        <div class="blog__hover__action">
+                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
+                                            <ul class="bl__meta">
+                                                <li>By :<a href="#">Admin</a></li>
+                                                <li>Product</li>
+                                            </ul>
+                                            <div class="blog__btn">
+                                                <a class="read__more__btn" href="blog-details.html">read more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Area -->
 
-		<!-- Search Panel -->
-		{% block search_panel %}
-		<div class="search_panel trans_300">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
-							<form action="#">
-								<input type="text" class="search_input" placeholder="Search" required="required">
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		{% endblock search_panel %}
+        {% endblock body %}
 
-		<!-- Social -->
+        {% block footer %}
+        <!-- Start Footer Area -->
+        <footer class="htc__foooter__area gray-bg" style="background-color:#87CEFA;">
+            <div class="container">
+                <div class="row">
+                    <div class="footer__container clearfix">
+                         <!-- Start Single Footer Widget -->
+                        <div class="col-md-3 col-lg-3 col-sm-6">
+                            <div class="ft__widget">
+                                <div class="ft__logo">
+                                    <a href="{% url 'index' %}">
+                                        <img src="{% static 'images/logo/logo.png' %}" alt="footer logo">
+                                    </a>
+                                </div>
+                                <div class="footer-address">
+                                    <ul>
+                                        <li>
+                                            <div class="address-icon">
+                                                <i class="zmdi zmdi-pin"></i>
+                                            </div>
+                                            <div class="address-text">
+                                                <p>194 Main Rd T, FS Rayed <br> VIC 3057, USA</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="address-icon">
+                                                <i class="zmdi zmdi-email"></i>
+                                            </div>
+                                            <div class="address-text">
+                                                <a href="#"> info@example.com</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="address-icon">
+                                                <i class="zmdi zmdi-phone-in-talk"></i>
+                                            </div>
+                                            <div class="address-text">
+                                                <p>+012 345 678 102 </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul class="social__icon">
+                                    <li><a href="#"><i class="zmdi zmdi-twitter" style="color:#708090;"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-instagram" style="color:#708090;"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-facebook" style="color:#708090;"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-google-plus" style="color:#708090;"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Footer Widget -->
+                        <!-- Start Single Footer Widget -->
+                        <div class="col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30">
+                            <div class="ft__widget">
+                                <h2 class="ft__title">Categories</h2>
+                                <ul class="footer-categories">
+                                    <li><a href="shop-sidebar.html">Men</a></li>
+                                    <li><a href="shop-sidebar.html">Women</a></li>
+                                    <li><a href="shop-sidebar.html">Accessories</a></li>
+                                    <li><a href="shop-sidebar.html">Shoes</a></li>
+                                    <li><a href="shop-sidebar.html">Dress</a></li>
+                                    <li><a href="shop-sidebar.html">Denim</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Start Single Footer Widget -->
+                        <div class="col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30">
+                            <div class="ft__widget">
+                                <h2 class="ft__title">Infomation</h2>
+                                <ul class="footer-categories">
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Returns & Exchanges</a></li>
+                                    <li><a href="#">Shipping & Delivery</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Start Single Footer Widget -->
+                        <div class="col-md-3 col-lg-3 col-lg-offset-1 col-sm-6 smt-30 xmt-30">
+                            <div class="ft__widget">
+                                <h2 class="ft__title">Newsletter</h2>
+                                <div class="newsletter__form">
+                                    <p>Subscribe to our newsletter and get 10% off your first purchase .</p>
+                                    <div class="input__box">
+                                        <div id="mc_embed_signup">
+                                            <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                                <div id="mc_embed_signup_scroll" class="htc__news__inner">
+                                                    <div class="news__input">
+                                                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+                                                    </div>
+                                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                                                    <div class="clearfix subscribe__btn"><input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
 
-		{% block social %}
-		<div class="header_social">
-			<ul>
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-		{% endblock social %}
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Footer Widget -->
+                    </div>
+                </div>
+                <!-- Start Copyright Area -->
+                <div class="htc__copyright__area">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="copyright__inner">
+                                <div class="copyright">
+                                    <p>© 2017 <a href="#">your website name</a>
+                                    All Right Reserved.</p>
+                                </div>
+                                <ul class="footer__menu">
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'shop' %}">Product</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Copyright Area -->
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+        {% endblock footer %}
 
-	</header>
-	{% endblock header %}
+    </div>
+    <!-- Body main wrapper end -->
 
-	<!-- Menu -->
-	{% block menu %}
-	<div class="menu menu_mm trans_300">
-		<div class="menu_container menu_mm">
-			<div class="page_menu_content">
+    {% block QUICKVIEW_PRODUCT %}
+    <!-- QUICKVIEW PRODUCT -->
+    <div id="quickview-wrapper">
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal__container" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-product">
+                            <!-- Start product images -->
+                            <div class="product-images">
+                                <div class="main-image images">
+                                    <img alt="big images" src="images/product/big-img/1.jpg">
+                                </div>
+                            </div>
+                            <!-- end product images -->
+                            <div class="product-info">
+                                <h1>Simple Fabric Bags</h1>
+                                <div class="rating__and__review">
+                                    <ul class="rating">
+                                        <li><span class="ti-star"></span></li>
+                                        <li><span class="ti-star"></span></li>
+                                        <li><span class="ti-star"></span></li>
+                                        <li><span class="ti-star"></span></li>
+                                        <li><span class="ti-star"></span></li>
+                                    </ul>
+                                    <div class="review">
+                                        <a href="#">4 customer reviews</a>
+                                    </div>
+                                </div>
+                                <div class="price-box-3">
+                                    <div class="s-price-box">
+                                        <span class="new-price">$17.20</span>
+                                        <span class="old-price">$45.00</span>
+                                    </div>
+                                </div>
+                                <div class="quick-desc">
+                                    Designed for simplicity and made from high quality materials. Its sleek geometry and material combinations creates a modern look.
+                                </div>
+                                <div class="select__color">
+                                    <h2>Select color</h2>
+                                    <ul class="color__list">
+                                        <li class="red"><a title="Red" href="#">Red</a></li>
+                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>
+                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
+                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
+                                    </ul>
+                                </div>
+                                <div class="select__size">
+                                    <h2>Select size</h2>
+                                    <ul class="color__list">
+                                        <li class="l__size"><a title="L" href="#">L</a></li>
+                                        <li class="m__size"><a title="M" href="#">M</a></li>
+                                        <li class="s__size"><a title="S" href="#">S</a></li>
+                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>
+                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>
+                                    </ul>
+                                </div>
+                                <div class="social-sharing">
+                                    <div class="widget widget_socialsharing_widget">
+                                        <h3 class="widget-title-modal">Share this product</h3>
+                                        <ul class="social-icons">
+                                            <li><a target="_blank" title="rss" href="#" class="rss social-icon"><i class="zmdi zmdi-rss"></i></a></li>
+                                            <li><a target="_blank" title="Linkedin" href="#" class="linkedin social-icon"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                            <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                            <li><a target="_blank" title="Tumblr" href="#" class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
+                                            <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="addtocart-btn">
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div><!-- .product-info -->
+                        </div><!-- .modal-product -->
+                    </div><!-- .modal-body -->
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div>
+        <!-- END Modal -->
+    </div>
+    <!-- END QUICKVIEW PRODUCT -->
+    {% endblock QUICKVIEW_PRODUCT %}
 
-				<div class="page_menu_search menu_mm">
-					<form action="#">
-						<input type="search" required="required" class="page_menu_search_input menu_mm" placeholder="Search for products...">
-					</form>
-				</div>
-				<ul class="page_menu_nav menu_mm">
-					<li class="page_menu_item has-children menu_mm">
-						<a href="{% url 'index' %}">Home<i class="fa fa-angle-down"></i></a>
-						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="{% url 'categories' %}">Categories<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'product' %}">Product<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'cart' %}">Cart<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'checkout' %}">Checkout<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'contact' %}">Contact<i class="fa fa-angle-down"></i></a></li>
-						</ul>
-					</li>
-					<li class="page_menu_item has-children menu_mm">
-						<a href="{% url 'categories' %}">Categories<i class="fa fa-angle-down"></i></a>
-						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="{% url 'categories' %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'categories' %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'categories' %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url 'categories' %}">Category<i class="fa fa-angle-down"></i></a></li>
-						</ul>
-					</li>
-					<li class="page_menu_item menu_mm"><a href="{% url 'index' %}">Accessories<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="#">Offers<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="{% url 'contact' %}">Contact<i class="fa fa-angle-down"></i></a></li>
-				</ul>
-			</div>
-		</div>
+    <!-- Placed js at the end of the document so the pages load faster -->
 
-		<div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    {% block js_foot %}
+    <!-- jquery latest version -->
+    <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+    <!-- Bootstrap framework js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 
-		<div class="menu_social">
-			<ul>
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	{% endblock menu %}
+        {% block js_google_map_js %}
+        {% endblock js_google_map_js %}
 
-	<!-- Home -->
-	{% block home %}
-	<div class="home">
-		<div class="home_slider_container">
+    <!-- Waypoints.min.js. -->
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock js_foot %}
 
-			<!-- Home Slider -->
-			<div class="owl-carousel owl-theme home_slider">
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url({% static 'images/funko.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url({% static 'images/best-the-mandalorian-funko-pop.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title" style="color:#6E5160;">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle" style="color:#6E5160;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#" style="color:#6E5160;">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url({% static 'images/funko_avenger.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content"  data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-										<div class="home_slider_title">A new Online Shop experience.</div>
-										<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-										<div class="button button_light home_button"><a href="#">Shop Now</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- Home Slider Dots -->
-
-			<div class="home_slider_dots_container">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="home_slider_dots">
-								<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
-									<li class="home_slider_custom_dot active">01.</li>
-									<li class="home_slider_custom_dot">02.</li>
-									<li class="home_slider_custom_dot">03.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	{% endblock home %}
-
-	<!-- Ads -->
-	{% block ads %}
-	<div class="avds">
-		<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
-			<div class="avds_small">
-				<div class="avds_background" style="background-image:url({% static 'images/dark.jpg' %})"></div>
-				<div class="avds_small_inner">
-<!--					<div class="avds_discount_container">-->
-<!--						<img src="{% static 'images/discount.png' %}" alt="">-->
-<!--						<div>-->
-<!--							<div class="avds_discount">-->
-<!--								<div>20<span>%</span></div>-->
-<!--								<div>Discount</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-					<div class="avds_small_content">
-						<div class="avds_title">FunkoPOP Dark</div>
-						<div class="avds_link"><a href="{% url 'categories' %}">See More</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="avds_large">
-				<div class="avds_background" style="background-image:url({% static 'images/funkopop.jpg' %})"></div>
-				<div class="avds_large_container">
-					<div class="avds_large_content">
-						<div class="avds_title">Funko POP!</div>
-						<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
-						<div class="avds_link avds_link_large"><a href="{% url 'categories' %}">See More</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endblock ads %}
-
-	{% block product_details %}
-	{% endblock product_details %}
-
-	{% block cart_info %}
-	{% endblock cart_info %}
-
-	<!-- Products -->
-	{% block products %}
-
-	<div class="products">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="product_grid">
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_extra product_sale"><a href="categories{% url 'cart' %}">Hot</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_extra product_sale"><a href="{% url 'categories' %}">Sale</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_extra product_hot"><a href="{% url 'categories' %}">Hot</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-						<!-- Product -->
-						<div class="product">
-							<div class="product_image"><img src="	" alt=""></div>
-							<div class="product_extra product_sale"><a href="categories{% url 'cart' %}">Hot</a></div>
-							<div class="product_content">
-								<div class="product_title"><a href="{% url 'product' %}">Smart Phone</a></div>
-								<div class="product_price">$670</div>
-							</div>
-						</div>
-
-					</div>
-
-
-
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endblock products %}
-
-	<!-- Ad -->
-	{% block ad %}
-	<div class="avds_xl">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="avds_xl_container clearfix">
-						<div class="avds_xl_background" style="background-image:url({% static 'images/marvel_1.jpg' %})"></div>
-						<div class="avds_xl_content" style="background: rgba(30, 144, 255, 0.5)">
-							<div class="avds_title">Amazing Funko Collection</div>
-							<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
-							<div class="avds_link avds_xl_link"><a href="{% url 'categories' %}">See More</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endblock ad %}
-
-	<!-- Icon Boxes -->
-	{% block icon_boxes %}
-	<div class="icon_boxes">
-		<div class="container">
-			<div class="row icon_box_row">
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image"><img src="{% static 'images/icon_1.svg' %}" alt=""></div>
-						<div class="icon_box_title">Free Shipping Worldwide</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image"><img src="{% static 'images/icon_2.svg' %}" alt=""></div>
-						<div class="icon_box_title">Free Returns</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Icon Box -->
-				<div class="col-lg-4 icon_box_col">
-					<div class="icon_box">
-						<div class="icon_box_image"><img src="{% static 'images/icon_3.svg' %}" alt=""></div>
-						<div class="icon_box_title">24h Fast Support</div>
-						<div class="icon_box_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	{% endblock icon_boxes %}
-
-	<!-- Newsletter -->
-	{% block newsletter %}
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="newsletter_border"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
-					<div class="newsletter_content text-center">
-						<div class="newsletter_title">Subscribe to our newsletter</div>
-						<div class="newsletter_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros</p></div>
-						<div class="newsletter_form_container">
-							<form action="#" id="newsletter_form" class="newsletter_form">
-								<input type="email" class="newsletter_input" required="required">
-								<button class="newsletter_button trans_200"><span>Subscribe</span></button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	{% endblock newsletter %}
-
-	{% block contact %}
-	{% endblock contact %}
-
-	{% block checkout %}
-	{% endblock checkout %}
-
-<!--	url({% static 'FunkoPOP_footer.jpg' %})-->
-	<!-- Footer -->
-	{% block footer %}
-	<div class="footer_overlay"></div>
-	<footer class="footer">
-		<div class="footer_background" style="background-color:#1E90FF"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-						<div class="footer_logo"><a href="#">FUNKOShop</a></div>
-						<div class="copyright ml-auto mr-auto"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" style="color:	#7B001C;">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-						<div class="footer_social ml-lg-auto">
-							<ul>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	{% endblock footer %}
-</div>
-
-{% block js %}
-<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
-<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
-<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
-<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
-<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'plugins/easing/easing.js' %}"></script>
-<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-{% endblock js %}
-
-{% block js_add %}
-<script src="{% static 'js/custom.js' %}"></script>
-{% endblock js_add %}
 
 </body>
+
 </html>
