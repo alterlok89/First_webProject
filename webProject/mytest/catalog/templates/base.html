@@ -62,7 +62,7 @@
                         <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
                             <div class="logo">
                                 <a href="{% url 'index' %}">
-                                    <img src="{% static 'images/logo/logo.png' %}" alt="logo">
+                                    <img src="{% static 'images/logo/Funko-Logo.png' %}" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                                     <li class="drop"><a href="#">pages</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'shop' %}">shop</a></li>
-                                            <li><a href="{% url 'product-details' %}">product details</a></li>
+<!--                                            <li><a href="#">product details</a></li>-->
                                             <li><a href="{% url 'cart' %}">cart</a></li>
                                             <li><a href="{% url 'wishlist' %}">wishlist</a></li>
                                             <li><a href="{% url 'checkout' %}">checkout</a></li>
@@ -142,7 +142,7 @@
                     <div class="off__contact">
                         <div class="logo">
                             <a href="{% url 'index' %}">
-                                <img src="{% static 'images/logo/logo.png' %}" alt="logo">
+                                <img src="{% static 'images/logo/Funko-Logo.png' %}" alt="logo">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
@@ -206,7 +206,7 @@
                                 </a>
                             </div>
                             <div class="shp__pro__details">
-                                <h2><a href="{% url 'product-details' %}">BO&Play Wireless Speaker</a></h2>
+                                <h2><a href="#">BO&Play Wireless Speaker</a></h2>
                                 <span class="quantity">QTY: 1</span>
                                 <span class="shp__price">$105.00</span>
                             </div>
@@ -221,7 +221,7 @@
                                 </a>
                             </div>
                             <div class="shp__pro__details">
-                                <h2><a href="{% url 'product-details' %}">Brone Candle</a></h2>
+                                <h2><a href="#">Brone Candle</a></h2>
                                 <span class="quantity">QTY: 1</span>
                                 <span class="shp__price">$25.00</span>
                             </div>
@@ -254,14 +254,14 @@
                         <div class="slider__container slider--one">
                             <div class="slider__activation__wrap owl-carousel owl-theme">
                                 <!-- Start Single Slide -->
-                                <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
+                                <div class="slide slider__full--screen slider-height-inherit slider-text-right" style="background: rgba(0, 0, 0, 0) url({% static 'images/slider/bg/squid-game-banner-1.jpg' %}) no-repeat scroll center center / cover ;">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-10 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
                                                 <div class="slider__inner">
-                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
+                                                    <h1 style="color:#87CEFA;">New Product <span class="text--theme">Collection</span></h1>
                                                     <div class="slider__btn">
-                                                        <a class="htc__btn" href="{% url 'cart' %}">shop now</a>
+                                                        <a class="htc__btn" href="{% url 'shop_serials' %}" style="color:#87CEFA;">shop now</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,14 +270,14 @@
                                 </div>
                                 <!-- End Single Slide -->
                                 <!-- Start Single Slide -->
-                                <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/2.png) no-repeat scroll center center / cover ;">
+                                <div class="slide slider__full--screen slider-height-inherit  slider-text-left" style="background: rgba(0, 0, 0, 0) url({% static 'images/slider/bg/funko-mcu.jpg' %}) no-repeat scroll center center / cover ;">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
                                                 <div class="slider__inner">
-                                                    <h1>New Product <span class="text--theme">Collection</span></h1>
+                                                    <h1 style="color:#87CEFA;">New Product <span class="text--theme" style="color:#000000;"	>Collection</span></h1>
                                                     <div class="slider__btn">
-                                                        <a class="htc__btn" href="{% url 'cart' %}">shop now</a>
+                                                        <a class="htc__btn" href="{% url 'shop_marvel' %}" style="color:#87CEFA;">shop now</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,231 +296,17 @@
                             </div>
                             <div class="category-menu-list">
                                 <ul>
-                                    <li><a href="#"><img alt="" src="images/icons/thum2.png"> Women’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-part-1 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-4 category-common">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum3.png"> Man Fashion <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-part-1 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-2 category-common2 mb--30">
-                                                <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="category-part-3 category-common2 mb--30">
-                                                <h4 class="categories-subtitle">dress</h4>
-                                                <ul>
-                                                    <li><a href="#"> Men’s Clothing</a></li>
-                                                    <li><a href="#"> Computer & Office</a></li>
-                                                    <li><a href="#"> Jewelry & Watches</a></li>
-                                                    <li><a href="#"> Bags & Shoes</a></li>
-                                                    <li><a href="#"> Phones & Accessories</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="mega-banner-img">
-                                                <a href="single-product.html">
-                                                    <img src="images/feature-img/5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum4.png"> Computer & Office <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-menu-dropdown-top">
-                                                <div class="category-part-1 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-2 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-3 category-common2 mb--30">
-                                                    <h4 class="categories-subtitle">Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="category-menu-dropdown-bottom">
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/6.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/7.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/8.png" alt=""></a>
-                                                </div>
-                                                <div class="single-category-brand">
-                                                    <a href="#"><img src="images/brand/9.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum5.png"> Jewelry & Watches <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-menu-dropdown-left">
-                                                <div class="category-part-1 category-common mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-2 category-common mb--30">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-3 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-4 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="category-menu-dropdown-right">
-                                                <div class="menu-right-img">
-                                                    <a href="#"><img src="images/feature-img/2.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum6.png"> Men’s Clothing <i class="zmdi zmdi-chevron-right"></i></a>
-                                        <div class="category-menu-dropdown">
-                                            <div class="category-menu-dropdown-left">
-                                                <div class="category-part-1 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones </a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="category-part-2 category-common">
-                                                    <h4 class="categories-subtitle"> Jewelry & Watches</h4>
-                                                    <ul>
-                                                        <li><a href="#"> Men’s Clothing</a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Jewelry & Watches</a></li>
-                                                        <li><a href="#"> Bags & Shoes</a></li>
-                                                        <li><a href="#"> Phones </a></li>
-                                                        <li><a href="#"> Computer & Office</a></li>
-                                                        <li><a href="#"> Phones & Accessories</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="category-menu-dropdown-right">
-                                                <div class="menu-right-img">
-                                                    <a href="#"><img src="images/feature-img/1.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum7.png"> Bags & Shoes</a></li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum8.png"> Toys & Kids & Baby</a></li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum9.png">  Automobiles </a></li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum10.png"> Jewelry & Watches</a></li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum2.png"> Consumer Electronics</a></li>
-                                    <li><a href="#"><img alt="" src="images/icons/thum3.png"> all Accessories</a></li>
+                                    <li><a href="{% url 'shop_marvel' %}"><img alt="" src="{% static 'images/icons/marvel.png' %}"> Фигурки MARVEL</a></li>
+                                    <li><a href="{% url 'shop_dc_comics' %}"><img alt="" src="{% static 'images/icons/dc_comics.png' %}"> Фигурки DC Comics</a></li>
+                                    <li><a href="{% url 'shop_disney' %}"><img alt="" src="{% static 'images/icons/Disney.png' %}"> Фигурки Disney</a></li>
+                                    <li><a href="{% url 'shop_games' %}"><img alt="" src="{% static 'images/icons/games.png' %}"> Фигурки из Игр</a></li>
+                                    <li><a href="{% url 'shop_icons' %}"><img alt="" src="{% static 'images/icons/icons.png' %}"> Фигурки Icons</a></li>
+                                    <li><a href="{% url 'shop_sport' %}"><img alt="" src="{% static 'images/icons/sport.png' %}"> Фигурки из Спорта</a></li>
+                                    <li><a href="{% url 'shop_anime' %}"><img alt="" src="{% static 'images/icons/anime_1.png' %}"> Фигурки из Аниме</a></li>
+                                    <li><a href="{% url 'shop_music' %}"><img alt="" src="{% static 'images/icons/music.png' %}"> Фигурки из Музыки</a></li>
+                                    <li><a href="{% url 'shop_mult' %}"><img alt="" src="{% static 'images/icons/mult.png' %}"> Фигурки из Мультфильмов</a></li>
+                                    <li><a href="{% url 'shop_film' %}"><img alt="" src="{% static 'images/icons/film.png' %}"> Фигурки из Фильмов</a></li>
+                                    <li><a href="{% url 'shop_serials' %}"><img alt="" src="{% static 'images/icons/serials.png' %}"> Фигурки из Сериалов</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -534,7 +320,7 @@
         <div class="only-banner ptb--100 bg__white">
             <div class="container">
                 <div class="only-banner-img">
-                    <a href="shop-sidebar.html"><img src="{% static 'images/new-product/3.jpg' %}" alt="new product"></a>
+                    <a href="{% url 'shop' %}"><img src="{% static 'images/new-product/new_product_1170x300.jpg' %}" alt="new product"></a>
                 </div>
             </div>
         </div>
@@ -543,122 +329,122 @@
         <div class="only-banner bg__white">
             <div class="container">
                 <div class="only-banner-img">
-                    <a href="shop-sidebar.html"><img src="{% static 'images/new-product/7.jpg' %}" alt="new product"></a>
+                    <a href="{% url 'shop' %}"><img src="{% static 'images/new-product/new_product_1171x300.jpg' %}" alt="new product"></a>
                 </div>
             </div>
         </div>
 
-        <!-- Start Blog Area -->
-        <section class="htc__blog__area bg__white pb--130">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section__title section__title--2 text-center">
-                            <h2 class="title__line">Latest News</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="blog__wrap clearfix mt--60 xmt-30">
-                        <!-- Start Single Blog -->
-                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                            <div class="blog foo">
-                                <div class="blog__inner">
-                                    <div class="blog__thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{% static 'images/blog/blog-img/1.jpg' %}" alt="blog images">
-                                        </a>
-                                        <div class="blog__post__time">
-                                            <div class="post__time--inner">
-                                                <span class="date">14</span>
-                                                <span class="month">sep</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="blog__hover__info">
-                                        <div class="blog__hover__action">
-                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
-                                            <ul class="bl__meta">
-                                                <li>By :<a href="#">Admin</a></li>
-                                                <li>Product</li>
-                                            </ul>
-                                            <div class="blog__btn">
-                                                <a class="read__more__btn" href="blog-details.html">read more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Blog -->
-                        <!-- Start Single Blog -->
-                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                            <div class="blog foo">
-                                <div class="blog__inner">
-                                    <div class="blog__thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{% static 'images/blog/blog-img/2.jpg' %}" alt="blog images">
-                                        </a>
-                                        <div class="blog__post__time">
-                                            <div class="post__time--inner">
-                                                <span class="date">14</span>
-                                                <span class="month">sep</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="blog__hover__info">
-                                        <div class="blog__hover__action">
-                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
-                                            <ul class="bl__meta">
-                                                <li>By :<a href="#">Admin</a></li>
-                                                <li>Product</li>
-                                            </ul>
-                                            <div class="blog__btn">
-                                                <a class="read__more__btn" href="blog-details.html">read more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Blog -->
-                        <!-- Start Single Blog -->
-                        <div class="col-md-4 col-lg-4 hidden-sm col-xs-12">
-                            <div class="blog foo">
-                                <div class="blog__inner">
-                                    <div class="blog__thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{% static 'images/blog/blog-img/3.jpg' %}" alt="blog images">
-                                        </a>
-                                        <div class="blog__post__time">
-                                            <div class="post__time--inner">
-                                                <span class="date">14</span>
-                                                <span class="month">sep</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="blog__hover__info">
-                                        <div class="blog__hover__action">
-                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>
-                                            <ul class="bl__meta">
-                                                <li>By :<a href="#">Admin</a></li>
-                                                <li>Product</li>
-                                            </ul>
-                                            <div class="blog__btn">
-                                                <a class="read__more__btn" href="blog-details.html">read more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Blog -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Blog Area -->
+<!--        &lt;!&ndash; Start Blog Area &ndash;&gt;-->
+<!--        <section class="htc__blog__area bg__white pb&#45;&#45;130">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-xs-12">-->
+<!--                        <div class="section__title section__title&#45;&#45;2 text-center">-->
+<!--                            <h2 class="title__line">Latest News</h2>-->
+<!--                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua. </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="blog__wrap clearfix mt&#45;&#45;60 xmt-30">-->
+<!--                        &lt;!&ndash; Start Single Blog &ndash;&gt;-->
+<!--                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
+<!--                            <div class="blog foo">-->
+<!--                                <div class="blog__inner">-->
+<!--                                    <div class="blog__thumb">-->
+<!--                                        <a href="blog-details.html">-->
+<!--                                            <img src="{% static 'images/blog/blog-img/1.jpg' %}" alt="blog images">-->
+<!--                                        </a>-->
+<!--                                        <div class="blog__post__time">-->
+<!--                                            <div class="post__time&#45;&#45;inner">-->
+<!--                                                <span class="date">14</span>-->
+<!--                                                <span class="month">sep</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="blog__hover__info">-->
+<!--                                        <div class="blog__hover__action">-->
+<!--                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>-->
+<!--                                            <ul class="bl__meta">-->
+<!--                                                <li>By :<a href="#">Admin</a></li>-->
+<!--                                                <li>Product</li>-->
+<!--                                            </ul>-->
+<!--                                            <div class="blog__btn">-->
+<!--                                                <a class="read__more__btn" href="blog-details.html">read more</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Single Blog &ndash;&gt;-->
+<!--                        &lt;!&ndash; Start Single Blog &ndash;&gt;-->
+<!--                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
+<!--                            <div class="blog foo">-->
+<!--                                <div class="blog__inner">-->
+<!--                                    <div class="blog__thumb">-->
+<!--                                        <a href="blog-details.html">-->
+<!--                                            <img src="{% static 'images/blog/blog-img/2.jpg' %}" alt="blog images">-->
+<!--                                        </a>-->
+<!--                                        <div class="blog__post__time">-->
+<!--                                            <div class="post__time&#45;&#45;inner">-->
+<!--                                                <span class="date">14</span>-->
+<!--                                                <span class="month">sep</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="blog__hover__info">-->
+<!--                                        <div class="blog__hover__action">-->
+<!--                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>-->
+<!--                                            <ul class="bl__meta">-->
+<!--                                                <li>By :<a href="#">Admin</a></li>-->
+<!--                                                <li>Product</li>-->
+<!--                                            </ul>-->
+<!--                                            <div class="blog__btn">-->
+<!--                                                <a class="read__more__btn" href="blog-details.html">read more</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Single Blog &ndash;&gt;-->
+<!--                        &lt;!&ndash; Start Single Blog &ndash;&gt;-->
+<!--                        <div class="col-md-4 col-lg-4 hidden-sm col-xs-12">-->
+<!--                            <div class="blog foo">-->
+<!--                                <div class="blog__inner">-->
+<!--                                    <div class="blog__thumb">-->
+<!--                                        <a href="blog-details.html">-->
+<!--                                            <img src="{% static 'images/blog/blog-img/3.jpg' %}" alt="blog images">-->
+<!--                                        </a>-->
+<!--                                        <div class="blog__post__time">-->
+<!--                                            <div class="post__time&#45;&#45;inner">-->
+<!--                                                <span class="date">14</span>-->
+<!--                                                <span class="month">sep</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="blog__hover__info">-->
+<!--                                        <div class="blog__hover__action">-->
+<!--                                            <p class="blog__des"><a href="blog-details.html">Lorem ipsum dolor sit consectetu.</a></p>-->
+<!--                                            <ul class="bl__meta">-->
+<!--                                                <li>By :<a href="#">Admin</a></li>-->
+<!--                                                <li>Product</li>-->
+<!--                                            </ul>-->
+<!--                                            <div class="blog__btn">-->
+<!--                                                <a class="read__more__btn" href="blog-details.html">read more</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Single Blog &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        &lt;!&ndash; End Blog Area &ndash;&gt;-->
 
         {% endblock body %}
 
@@ -673,7 +459,7 @@
                             <div class="ft__widget">
                                 <div class="ft__logo">
                                     <a href="{% url 'index' %}">
-                                        <img src="{% static 'images/logo/logo.png' %}" alt="footer logo">
+                                        <img src="{% static 'images/logo/Funko-Logo.png' %}" alt="footer logo">
                                     </a>
                                 </div>
                                 <div class="footer-address">
@@ -718,12 +504,17 @@
                             <div class="ft__widget">
                                 <h2 class="ft__title">Categories</h2>
                                 <ul class="footer-categories">
-                                    <li><a href="shop-sidebar.html">Men</a></li>
-                                    <li><a href="shop-sidebar.html">Women</a></li>
-                                    <li><a href="shop-sidebar.html">Accessories</a></li>
-                                    <li><a href="shop-sidebar.html">Shoes</a></li>
-                                    <li><a href="shop-sidebar.html">Dress</a></li>
-                                    <li><a href="shop-sidebar.html">Denim</a></li>
+                                    <li><a href="{% url 'shop_marvel' %}">Фигурки MARVEL</a></li>
+                                    <li><a href="{% url 'shop_dc_comics' %}">Фигурки DC Comics</a></li>
+                                    <li><a href="{% url 'shop_disney' %}">Фигурки Disney</a></li>
+                                    <li><a href="{% url 'shop_games' %}">Фигурки из Игр</a></li>
+                                    <li><a href="{% url 'shop_icons' %}">Фигурки Icons</a></li>
+                                    <li><a href="{% url 'shop_sport' %}">Фигурки из Спорта</a></li>
+                                    <li><a href="{% url 'shop_anime' %}">Фигурки из Аниме</a></li>
+                                    <li><a href="{% url 'shop_music' %}">Фигурки из Музыки</a></li>
+                                    <li><a href="{% url 'shop_mult' %}">Фигурки из Мультфильмов</a></li>
+                                    <li><a href="{% url 'shop_film' %}">Фигурки из Фильмов</a></li>
+                                    <li><a href="{% url 'shop_serials' %}">Фигурки из Сериалов</a></li>
                                 </ul>
                             </div>
                         </div>
