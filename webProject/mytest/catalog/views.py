@@ -44,9 +44,9 @@ def product_details(request, id):
     return render(request, 'product-details.html', context={'product': product})
 
 
-def shop(request):
-    print(f'-----\n{request}\n-----')
-    return render(request, 'shop.html')
+# def shop(request):
+#     print(f'-----\n{request}\n-----')
+#     return render(request, 'shop.html')
 
 
 def wishlist(request):
@@ -56,7 +56,7 @@ def wishlist(request):
 
 class ProductListViews(generic.ListView):
     model = Product
-    paginate_by = 20
+    paginate_by = 30
     template_name = 'shop.html'
     context_object_name = 'product_list'
 
