@@ -24,7 +24,7 @@ def cart(request):
 
 def login_register(request):
     print(f'-----\n{request}\n-----')
-    return render(request, 'login-register.html')
+    return render(request, 'registration/login.html')
 
 
 def checkout(request):
@@ -39,9 +39,12 @@ def contact(request):
 
 def product_details(request, id):
     product = Product.objects.get(id=id)
+    visits = request.session.get('visits', 0)
+    request.session['visits'] = visits + 1
     print(f'-----\n{product}\n-----')
     print(f'-----\n{request}\n-----')
-    return render(request, 'product-details.html', context={'product': product})
+    return render(request, 'product-details.html', context={'product': product,
+                                                            'visits': visits})
 
 
 # def shop(request):
@@ -61,59 +64,16 @@ class ProductListViews(generic.ListView):
     context_object_name = 'product_list'
 
     def get_queryset(self):
-        return Product.objects.all()
+        return Product.objects.filter(availability=True)
+        # return Product.objects.all()
 
 
-class MarvelListViews(ProductListViews):
+class ProductCategoryListViews(generic.ListView):
+    model = Product
+    paginate_by = 30
+    template_name = 'shop.html'
+    context_object_name = 'product_list'
+
     def get_queryset(self):
-        return Product.objects.filter(category='Фигурки MARVEL')
+        return Product.objects.filter(category__slug=self.kwargs['category_slug'], availability=True)
 
-
-class DccomicsListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки DC Comics')
-
-
-class DisneyListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки Disney')
-
-
-class GamesListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Игр')
-
-
-class IconsListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки Icons')
-
-
-class AnimeListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Аниме')
-
-
-class SportListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Спорта')
-
-
-class MusicListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Музыки')
-
-
-class MultListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Мультфильмов')
-
-
-class FilmListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Фильмов')
-
-
-class SerialsListViews(ProductListViews):
-    def get_queryset(self):
-        return Product.objects.filter(category='Фигурки из Сериалов')

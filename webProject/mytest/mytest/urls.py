@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
+    path('users/', include('django.contrib.auth.urls')),
 
         ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
