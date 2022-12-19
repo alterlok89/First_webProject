@@ -3,19 +3,29 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 from django.views import generic
-from .models import Product
+from .models import Product, Category
 
 
 def index(request):
-    products = Product.objects.all()
-    print(products)
-    print(f'-----\n{request}\n-----')
-    return render(request, 'index.html', {"products": products})
+    products_list = Product.objects.all()
+    category_list = Category.objects.all()
+    context = {
+        'products_list': products_list,
+        'category_list': category_list,
+    }
+
+    return render(request, 'index.html', context=context)
 
 
 def home(request):
-    print(f'-----\n{request}\n-----')
-    return render(request, 'index.html')
+    products_list = Product.objects.all()
+    category_list = Category.objects.all()
+    context = {
+        'products_list': products_list,
+        'category_list': category_list,
+    }
+
+    return render(request, 'index.html', context=context)
 
 def cart(request):
     print(f'-----\n{request}\n-----')
@@ -41,15 +51,36 @@ def product_details(request, id):
     product = Product.objects.get(id=id)
     visits = request.session.get('visits', 0)
     request.session['visits'] = visits + 1
-    print(f'-----\n{product}\n-----')
+    context = {
+        'product': product,
+        'visits': visits,
+    }
+    return render(request, 'product-details.html', context=context)
+
+
+def shop(request):
+    product_list = Product.objects.all()
+    category_list = Category.objects.all()
+    context = {
+        'product_list': product_list,
+        'category_list': category_list,
+        'category_selected': 0,
+    }
     print(f'-----\n{request}\n-----')
-    return render(request, 'product-details.html', context={'product': product,
-                                                            'visits': visits})
+    return render(request, 'shop.html', context=context)
 
 
-# def shop(request):
-#     print(f'-----\n{request}\n-----')
-#     return render(request, 'shop.html')
+def shop_category(request, cat_id):
+    product_list = Product.objects.filter(cat_id=cat_id)
+    category_list = Category.objects.all()
+
+    context = {
+        'product_list': product_list,
+        'category_list': category_list,
+        'category_selected': cat_id,
+    }
+    print(f'-----\n{request}\n-----')
+    return render(request, 'shop.html', context=context)
 
 
 def wishlist(request):
@@ -57,23 +88,23 @@ def wishlist(request):
     return render(request, 'wishlist.html')
 
 
-class ProductListViews(generic.ListView):
-    model = Product
-    paginate_by = 30
-    template_name = 'shop.html'
-    context_object_name = 'product_list'
+# class ProductListViews(generic.ListView):
+#     model = Product
+#     paginate_by = 30
+#     template_name = 'shop.html'
+#     context_object_name = 'product_list'
+#
+#     def get_queryset(self):
+#         return Product.objects.filter(availability=True)
 
-    def get_queryset(self):
-        return Product.objects.filter(availability=True)
-        # return Product.objects.all()
 
 
-class ProductCategoryListViews(generic.ListView):
-    model = Product
-    paginate_by = 30
-    template_name = 'shop.html'
-    context_object_name = 'product_list'
-
-    def get_queryset(self):
-        return Product.objects.filter(category__slug=self.kwargs['category_slug'], availability=True)
+# class ProductCategoryListViews(generic.ListView):
+#     model = Product
+#     paginate_by = 30
+#     template_name = 'shop.html'
+#     context_object_name = 'product_list'
+#
+#     def get_queryset(self):
+#         return Product.objects.filter(category__slug=self.kwargs['category_slug'], availability=True)
 

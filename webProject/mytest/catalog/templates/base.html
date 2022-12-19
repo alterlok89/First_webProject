@@ -296,17 +296,11 @@
                             </div>
                             <div class="category-menu-list">
                                 <ul>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/marvel.png' %}"> Фигурки MARVEL</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/dc_comics.png' %}"> Фигурки DC Comics</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/Disney.png' %}"> Фигурки Disney</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/games.png' %}"> Фигурки из Игр</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/icons.png' %}"> Фигурки Icons</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/sport.png' %}"> Фигурки из Спорта</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/anime_1.png' %}"> Фигурки из Аниме</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/music.png' %}"> Фигурки из Музыки</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/mult.png' %}"> Фигурки из Мультфильмов</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/film.png' %}"> Фигурки из Фильмов</a></li>
-                                    <li><a href="{% url 'index' %}"><img alt="" src="{% static 'images/icons/serials.png' %}"> Фигурки из Сериалов</a></li>
+                                    {% if category_list %}
+                                        {% for cat in category_list %}
+                                    <li><a href="{{ cat.get_absolute_url }}"><img alt="" src="#"> {{ cat.name }}</a></li>
+                                        {% endfor %}
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
