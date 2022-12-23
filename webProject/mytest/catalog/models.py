@@ -7,6 +7,7 @@ from django.urls import reverse
 class Product(models.Model):
 
     name = models.CharField(max_length=100, help_text='Product name', default=None)
+    slug = models.SlugField(max_length=100, help_text='URL', unique=True, db_index=True)
     price = models.FloatField(help_text='Product price', default=0)
     availability = models.BooleanField(help_text='Product availability', default=True)
     description = models.CharField(max_length=500, help_text='Product description', default=None)
@@ -20,7 +21,8 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('product-details', kwargs={'id': self.pk})
+        s = self.slug.replace('/','').replace(')','').replace('(','').replace('#','').replace('\'','')
+        return reverse('product-details', kwargs={'prod_slug': s})
 
     class Meta:
         verbose_name = 'Коллекционные игрушки FUNKO'
@@ -31,13 +33,13 @@ class Product(models.Model):
 class Category(models.Model):
 
     name = models.CharField(max_length=100, help_text='Category name', db_index=True)
-    # pic = models.ImageField(help_text='Category picture', default=None)
+    slug = models.SlugField(max_length=100, help_text='URL', unique=True, db_index=True)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'cat_id': self.pk})
+        return reverse('category', kwargs={'cat_slug': self.slug})
 
     class Meta:
         verbose_name = 'Категория'

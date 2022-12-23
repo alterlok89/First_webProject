@@ -1,6 +1,6 @@
 import django
 import sqlite3
-
+from transliterate import translit
 
 print(django.get_version())
 
@@ -32,17 +32,16 @@ class DataBase:
         values = values[:-2]
 
         req = f'INSERT INTO "{table}"' \
-                              f' ({columns}) ' \
-                              f'VALUES ' \
-                              f'({values});'
+              f' ({columns}) ' \
+              f'VALUES ' \
+              f'({values});'
         # print(req)
         self.__conn.cursor()
         self.__conn.execute(req)
         self.__conn.commit()
 
 
-db = DataBase('product.sqlite')
-text = db.get_all_item('Product_items')
+
 #
 # d = {
 #     'name': text[0][0],
@@ -52,15 +51,17 @@ text = db.get_all_item('Product_items')
 #     'description': text[0][4],
 #     'images': text[0][5],
 # }
-cat = []
-for i in range(len(text)):
-    if text[i][3] not in cat:
-        cat.append(text[i][3])
-
-print(cat)
-# data = DataBase('db.sqlite3')
+# cat = []
+# for i in range(len(text)):
+#     if text[i][3] not in cat:
+#         cat.append(text[i][3])
+#
+# print(cat)
+# data = DataBase('webProject\mytest\db.sqlite3')
 # # print(data.)
 # for i in range(len(text)):
+#     slug = translit(text[i][0].lower().replace(' ', '_'), 'ru', reversed=True)
+#
 #     d = {
 #         'name': text[i][0],
 #         'price': text[i][1],
@@ -69,6 +70,7 @@ print(cat)
 #         'description': text[i][4],
 #         'images': text[i][5],
 #         'availability': 1,
+#         'slug': f'{slug}_{i}',
 #     }
 #     print(d)
 #     data.add_item(table='catalog_product', data=d)
