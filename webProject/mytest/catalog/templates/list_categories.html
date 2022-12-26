@@ -1,0 +1,5 @@
+{% if cats %}
+    {% for cat in cats %}
+    <li><a href="{{ cat.get_absolute_url }}"><img alt="" src="#"> {{ cat.name }}</a></li>
+    {% endfor %}
+{% endif %}

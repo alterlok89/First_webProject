@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # Create your views here.
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
+
+from .forms import RegisterUserForm
 from .models import Product, Category
 
 
@@ -32,11 +35,6 @@ def cart(request):
     return render(request, 'cart.html')
 
 
-def login_register(request):
-    print(f'-----\n{request}\n-----')
-    return render(request, 'registration/login.html')
-
-
 def checkout(request):
     print(f'-----\n{request}\n-----')
     return render(request, 'checkout.html')
@@ -60,7 +58,7 @@ class ProductDetail(DetailView):
 
 class Shop(ListView):
     model = Product
-    paginate_by = 30
+    paginate_by = 25
     template_name = 'shop.html'
     context_object_name = 'product_list'
 
@@ -75,7 +73,7 @@ class Shop(ListView):
 
 class ShopCategory(ListView):
     model = Product
-    paginate_by = 30
+    paginate_by = 25
     template_name = 'shop.html'
     context_object_name = 'product_list'
     allow_empty = False
@@ -94,4 +92,11 @@ def wishlist(request):
     return render(request, 'wishlist.html')
 
 
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'registration/login.html'
+    success_url = reverse_lazy('login')
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

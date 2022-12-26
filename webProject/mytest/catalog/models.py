@@ -21,7 +21,8 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        s = self.slug.replace('/','').replace(')','').replace('(','').replace('#','').replace('\'','')
+        s = self.slug.replace('/','').replace(')','').replace('(','').replace('#','').replace('\'','')\
+            .replace('’','').replace('?','')
         return reverse('product-details', kwargs={'prod_slug': s})
 
     class Meta:
